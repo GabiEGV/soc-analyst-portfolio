@@ -10,7 +10,7 @@ I wasn't expecting a delivery, but that's not really the tell. The tell is every
 
 ## Why I didn't trust it
 
-A few things stood out before I even thought about touching the link. Andreani doesn't send delivery notices from a random SMS number, which alone was enough to make me suspicious. Then there's the framing: "your package failed to deliver, fix it now or..." is the oldest trick in the book, designed to get you reacting instead of thinking.
+A few things stood out before I even thought about touching the link. Andreani doesn't send delivery notices from a random SMS number, which alone was enough to make me suspicious. Then there's the framing: "your package failed to deliver, fix it now or..." is the oldest trick in the book, designed to get you reacting instead of thinking (fear-based urgency).
 
 But the part that really sealed it was the bit.ly link. There's no reason a legitimate courier needs to shorten a link to their own address-correction page. Shorteners exist here for one purpose, and that's hiding where you're actually going.
 
