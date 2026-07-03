@@ -12,9 +12,9 @@ I wasn't expecting a delivery, but that's not really the tell — the tell is ev
 
 A few things stood out before I even thought about touching the link:
 
-- **The sender wasn't an official short code.** Andreani doesn't send delivery notices from a random SMS number.
-- **It's built entirely around urgency.** "Your package failed to deliver, fix it now or..." is the oldest trick in the book — it wants you reacting, not thinking.
-- **It's hiding behind a bit.ly link.** There's no reason a legitimate courier needs to shorten a link to their own address-correction page. Shorteners exist here for one purpose: to hide where you're actually going.
+The sender wasn't an official short code.** Andreani doesn't send delivery notices from a random SMS number.
+It's built entirely around urgency.** "Your package failed to deliver, fix it now or..." is the oldest trick in the book — it wants you reacting, not thinking.
+It's hiding behind a bit.ly link.** There's no reason a legitimate courier needs to shorten a link to their own address-correction page. Shorteners exist here for one purpose: to hide where you're actually going.
 
 That's basically the whole playbook for smishing in one message.
 
@@ -34,8 +34,8 @@ The History section backs that up too: First Submission and Last Analysis both s
 
 This is where a lot of people would stop at "1/92" and assume it's fine, so it's worth being explicit about why that reasoning doesn't hold up:
 
-- **Detection lags reality.** New phishing infrastructure often isn't indexed across all 92 engines yet — a low count on a fresh URL isn't the same as a low count on a URL that's been live for weeks.
-- **Phishing kits are disposable.** Getting killed within hours — whether by Bitly's abuse team or the attacker rotating infrastructure — is normal behavior for this kind of campaign, not a sign it was never a threat.
+Detection lags reality.** New phishing infrastructure often isn't indexed across all 92 engines yet — a low count on a fresh URL isn't the same as a low count on a URL that's been live for weeks.
+Phishing kits are disposable.** Getting killed within hours — whether by Bitly's abuse team or the attacker rotating infrastructure — is normal behavior for this kind of campaign, not a sign it was never a threat.
 
 So the "1/92" number isn't the verdict on its own. Combined with the sender, the urgency framing, the shortener, and how fast this link got taken down, it's enough to call this confidently malicious.
 
