@@ -41,7 +41,7 @@ So the "1/92" number isn't the verdict on its own. Combined with the sender, the
 
 ## Verdict
 
-🔴 **Smishing.** Confirmed by behavioral indicators (spoofed sender, urgency, unsolicited), partial vendor confirmation on VirusTotal, and infrastructure-level evidence (the shortlink was already dead at the Bitly level within hours of being sent). The low overall detection ratio is explained by detection lag and the short-lived nature of phishing infrastructure — not by the link being safe.
+**Smishing.** Confirmed by behavioral indicators (spoofed sender, urgency, unsolicited), partial vendor confirmation on VirusTotal, and infrastructure-level evidence (the shortlink was already dead at the Bitly level within hours of being sent). The low overall detection ratio is explained by detection lag and the short-lived nature of phishing infrastructure — not by the link being safe.
 
 ## What I did
 
