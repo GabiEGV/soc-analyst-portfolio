@@ -26,7 +26,7 @@ Only 1 out of 92 vendors, Gridinsoft, flagged it, and by the time I scanned it t
 
 ![VirusTotal Details tab showing the HTTP response, serving IP, and history for the bit.ly link](assets/andreani-smishing/03-virustotal-details.png)
 
-The Details tab is what makes this interesting. The **Final URL** field still shows the same bit.ly link, meaning it never redirected anywhere. The serving IP (`67.199.248.10`), the `nginx` server header, and a response body titled *"Bitly | Page Not Found | 404"* all point to one thing: **Bitly itself** is answering that request, not some phishing site on the other end. That's different from "the link expired on its own." It means Bitly killed the shortlink at the source, most likely pulled down after abuse reports, or a shortcode that never fully activated on the attacker's side before takedown.
+The Details tab is what makes this interesting. The **Final URL** field still shows the same bit.ly link, meaning it never redirected anywhere. The serving IP (`67.199.248.10`), the `nginx` server header, and a response body titled *"Bitly | Page Not Found | 404"* all point to one thing: **Bitly** itself is answering that request, not some phishing site on the other end. That's different from "the link expired on its own." It means Bitly killed the shortlink at the source, most likely pulled down after abuse reports, or a shortcode that never fully activated on the attacker's side before takedown.
 
 The History section backs that up too. First Submission and Last Analysis both show 2026-07-03, the same day I got the text. I was scanning this thing within hours of it going out, and it was already dead.
 
