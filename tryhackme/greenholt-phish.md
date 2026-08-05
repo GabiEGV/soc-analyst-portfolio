@@ -1,6 +1,6 @@
 # The Greenholt Phish — TryHackMe
 
-**Room:** [The Greenholt Phish](https://tryhackme.com/room/greenholtphish)
+**Room:** [The Greenholt Phish](https://tryhackme.com/room/phishingemails5fgjlzxc)
 **Path:** SOC Level 1 → Phishing Analysis
 **Date completed:** July 2026
 

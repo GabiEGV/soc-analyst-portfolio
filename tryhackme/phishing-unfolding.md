@@ -1,6 +1,6 @@
 # Phishing Unfolding — TryHackMe SOC Simulator
 
-**Room:** [Phishing Unfolding](https://tryhackme.com/room/phishingunfolding)
+**Room:** [Phishing Unfolding](https://tryhackme.com/soc-sim/scenarios?scenario=phishing-unfolding-v2)
 **Path:** SOC Level 1 → Phishing Analysis
 **SIEM used:** Splunk
 **Date completed:** August 2026
