@@ -27,6 +27,27 @@ Real-time SOC simulator: alerts arrive continuously in an Alert Queue as a live 
 
 ## Key Incident: DNS Tunneling Exfiltration (Host win-3450, user michael.ascot)
 
+### Attack Chain Overview
+
+```
+Phishing email (ImportantInvoice-Febrary.zip)
+        │
+        ▼
+   Execution (powershell.exe)
+        │
+        ├──▶ net use Z: \\FILESRV-01\SSF-FinancialRecords   (Collection)
+        │
+        ├──▶ net use Z: /delete                              (Cleanup)
+        │
+        ├──▶ rdpclip.exe observed                             (Possible RDP access — unverified)
+        │
+        ▼
+   nslookup.exe (Base64-encoded data as subdomain)
+        │
+        ▼
+   haz4rdw4re[.]io                                            (Exfiltration — DNS tunneling)
+```
+
 ### Attack Chain Reconstructed
 
 **Step 1 — Initial vector:** Phishing email from `john@hatmakereurope.xyz` to `michael.ascot@tryhatme.com`, subject *"FINAL NOTICE: Overdue Payment - Account Suspension Imminent"*, using urgency/legal-threat social engineering. Malicious attachment: `ImportantInvoice-Febrary.zip` (note filename typo).

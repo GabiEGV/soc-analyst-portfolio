@@ -50,7 +50,7 @@ DMARC: v=DMARC1; p=quarantine; fo=1
 **Analysis:**
 - The legitimate SPF record authorizes **only** Microsoft Outlook/Office 365 servers to send mail on behalf of `mutawamarine.com`, with a hard-fail policy (`-all`) for anything else.
 - The sending IP (Hostwinds/HostPapa infrastructure) is not part of that authorized list — confirming the `Received-SPF: fail` result and the spoofing conclusion.
-- DMARC policy is `p=quarantine`, meaning messages failing SPF/DKIM should be routed to spam rather than delivered to the inbox — highlighting a gap between policy and actual mail flow (or that the receiving mail server's own filtering handled the disposition).
+- DMARC policy is `p=quarantine`, meaning messages failing SPF/DKIM should be routed to spam rather than delivered to the inbox — highlighting that DMARC policy alone does not guarantee rejection, since final message handling also depends on the receiving mail server's enforcement and filtering configuration.
 
 ## Attachment Analysis
 
