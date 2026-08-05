@@ -2,13 +2,15 @@
 
 Entry-level SOC Analyst candidate based in Buenos Aires, Argentina, with EU work authorization (Spanish citizenship). This repository documents my hands-on training and practical case analysis as I work toward CompTIA Security+ and BTL1 certifications, following the TryHackMe SOC Level 1 learning path.
 
-## 🔍 Highlighted Case
+Tools & Technologies: Splunk • Sysmon • MITRE ATT&CK • Sigma • CyberChef • VirusTotal • DNS • Windows Event Logs
 
-**[Phishing Unfolding — DNS Tunneling Exfiltration Incident](tryhackme/phishing-unfolding.md)**
+## 🚨 Featured SOC Investigations
+
+[Phishing Unfolding — DNS Tunneling Exfiltration Incident](tryhackme/phishing-unfolding.md)
 
 Live SOC simulator exercise (Splunk) where I triaged and correlated 10+ alerts spread across email and endpoint telemetry into a single incident: a phishing email led to execution, unauthorized access to a financial records share, anti-forensic cleanup, and active data exfiltration via DNS tunneling. Full attack chain reconstruction, MITRE ATT&CK mapping, and IOCs documented.
 
-**[The Greenholt Phish — Email Header & Infrastructure Analysis](tryhackme/greenholt-phish.md)**
+[The Greenholt Phish — Email Header & Infrastructure Analysis](tryhackme/greenholt-phish.md)
 
 Full header analysis of a spoofed phishing email: SPF/DMARC verification, sending infrastructure investigation (WHOIS), and identification of a disguised malicious attachment via file signature analysis.
 
@@ -24,20 +26,21 @@ Full header analysis of a spoofed phishing email: SPF/DMARC verification, sendin
 
 ## 🛠 Tools & Skills Practiced
 
-- **SIEM:** Splunk (alert triage, log correlation)
-- **Analysis:** Sysmon, CyberChef, VirusTotal, urlscan.io, Cisco Talos, WHOIS/DNS lookups (SPF, DMARC)
-- **Frameworks:** MITRE ATT&CK, Cyber Kill Chain, Pyramid of Pain
-- **Detection Engineering:** Sigma rules (in progress)
-- **Networking:** Subnetting, DNS, TCP/UDP fundamentals
+- SIEM: Splunk (alert triage, log correlation)
+- Analysis: Sysmon, CyberChef, VirusTotal, urlscan.io, Cisco Talos, WHOIS/DNS lookups (SPF, DMARC)
+- Frameworks: MITRE ATT&CK, Cyber Kill Chain, Pyramid of Pain
+- Detection Engineering: Sigma rules (in progress)
+- Networking: Subnetting, DNS, TCP/UDP fundamentals
 
-## 📜 Certifications (in progress)
+## 📜 Current Learning
 
+- TryHackMe SOC Level 1 Path (ongoing)
 - CompTIA Security+
 - BTL1 (BlackPerl Threat Level 1)
 
 ## 📫 Contact
 
-[LinkedIn](https://www.linkedin.com/in/gabriel-garcia-villegas/)
+[LinkedIn](#) <!-- Gabi: agregá tu URL de LinkedIn acá -->
 
 ---
 *This portfolio is actively updated as I progress through my SOC Level 1 training.*
