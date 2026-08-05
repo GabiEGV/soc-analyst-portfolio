@@ -77,14 +77,16 @@ DNS is essential for normal network operation, so it is rarely blocked or deeply
 
 ### IOCs Summary
 
+*IOCs below are defanged (`[.]`/`[at]`) to prevent accidental clicks. Raw command-line evidence in the sections above is left unmodified as forensic log data.*
+
 | Type | Value |
 |---|---|
 | Host | win-3450 |
 | User | michael.ascot |
-| Malicious sender | john@hatmakereurope.xyz |
+| Malicious sender | john[at]hatmakereurope[.]xyz |
 | Malicious attachment | ImportantInvoice-Febrary.zip |
 | Accessed share | \\FILESRV-01\SSF-FinancialRecords |
-| C2 / exfiltration domain | haz4rdw4re.io |
+| C2 / exfiltration domain | haz4rdw4re[.]io |
 | Parent process (all stages) | powershell.exe (PID 3728) |
 | Child processes | net.exe, nslookup.exe, (rdpclip.exe — under investigation) |
 

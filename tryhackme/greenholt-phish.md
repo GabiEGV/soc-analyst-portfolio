@@ -66,12 +66,14 @@ DMARC: v=DMARC1; p=quarantine; fo=1
 
 ## IOCs Summary
 
+*IOCs below are defanged (`[.]`/`[at]`) to prevent accidental clicks.*
+
 | Type | Value |
 |---|---|
-| Spoofed domain | mutawamarine.com |
-| Sending IP | 192.119.71.157 |
-| Sending infrastructure | hwsrv-737338.hostwindsdns.com (Hostwinds/HostPapa) |
-| Reply-To | info.mutawamarine@mail.com |
+| Spoofed domain | mutawamarine[.]com |
+| Sending IP | 192.119.71[.]157 |
+| Sending infrastructure | hwsrv-737338[.]hostwindsdns[.]com (Hostwinds/HostPapa) |
+| Reply-To | info.mutawamarine[at]mail[.]com |
 | Attachment | Disguised `.cab` (true type: RAR) |
 
 ## Conclusion
