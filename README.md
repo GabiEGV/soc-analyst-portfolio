@@ -37,7 +37,7 @@ Full header analysis of a spoofed phishing email: SPF/DMARC verification, sendin
 
 ## 📫 Contact
 
-[LinkedIn](#) <!-- Gabi: agregá tu URL de LinkedIn acá -->
+[LinkedIn](https://www.linkedin.com/in/gabriel-garcia-villegas/)
 
 ---
 *This portfolio is actively updated as I progress through my SOC Level 1 training.*
