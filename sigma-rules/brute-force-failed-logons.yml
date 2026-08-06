@@ -1,0 +1,23 @@
+title: Multiple Failed Logon Attempts (Possible Brute Force)
+id: 9c3f7e2b-1a4d-4c8e-b6f5-2e7a9d3c5b8f
+status: experimental
+description: Detects a high number of failed logon attempts (Event ID 4625) against the same target user account within a short time window, which may indicate a brute force or password guessing attack.
+references:
+    - https://attack.mitre.org/techniques/T1110/001/
+author: Gabriel García Villegas
+date: 2026/08/06
+tags:
+    - attack.credential_access
+    - attack.t1110.001
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4625
+    condition: selection | count() by TargetUserName > 4
+falsepositives:
+    - Users repeatedly mistyping their password
+    - Service accounts with outdated cached credentials retrying automatically
+    - Misconfigured applications retrying failed authentication
+level: medium
