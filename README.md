@@ -18,7 +18,7 @@ Full header analysis of a spoofed phishing email: SPF/DMARC verification, sendin
 
 | Folder | Contents |
 |---|---|
-| `tryhackme/` | Room writeups from the TryHackMe SOC Level 1 path — email/phishing analysis, SOC simulator incidents, and more as they're completed |
+| `tryhackme/` | Room writeups from the TryHackMe SOC Level 1 path — email/phishing analysis, SOC simulator incidents, and more as they're completed | "network traffic analysis |
 | `labs/` | Hands-on lab work outside of TryHackMe rooms |
 | `sigma-rules/` | Custom Sigma detection rules written for practice scenarios |
 | `notes/` | Structured study notes (SIEM, MITRE ATT&CK, networking fundamentals, etc.) |
