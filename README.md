@@ -2,7 +2,7 @@
 
 Entry-level SOC Analyst candidate based in Buenos Aires, Argentina, with EU work authorization (Spanish citizenship). This repository documents my hands-on training and practical case analysis as I work toward CompTIA Security+ and BTL1 certifications, following the TryHackMe SOC Level 1 learning path.
 
-Tools & Technologies: Splunk • Sysmon • MITRE ATT&CK • Sigma • CyberChef • VirusTotal • DNS • Windows Event Logs
+Tools & Technologies: Splunk • Sysmon • MITRE ATT&CK • Sigma • CyberChef • VirusTotal • DNS • Windows Event • Logs Wireshark • NetworkMiner.
 
 ## 🚨 Featured SOC Investigations
 
@@ -29,8 +29,9 @@ Full header analysis of a spoofed phishing email: SPF/DMARC verification, sendin
 - SIEM: Splunk (alert triage, log correlation)
 - Analysis: Sysmon, CyberChef, VirusTotal, urlscan.io, Cisco Talos, WHOIS/DNS lookups (SPF, DMARC)
 - Frameworks: MITRE ATT&CK, Cyber Kill Chain, Pyramid of Pain
-- Detection Engineering: Sigma rules (in progress)
+- Detection Engineering: 3 custom Sigma rules mapped to MITRE ATT&CK (SPF spoofing, brute force, DNS tunneling)
 - Networking: Subnetting, DNS, TCP/UDP fundamentals
+- Network traffic analysis: Wireshark (display filters, protocol dissection, tunneling and cleartext credential detection), NetworkMiner
 
 ## 📜 Current Learning
 
