@@ -2,7 +2,7 @@
 
 Entry-level SOC Analyst candidate based in Buenos Aires, Argentina, with EU work authorization (Spanish citizenship). This repository documents my hands-on training and practical case analysis as I work toward CompTIA Security+ and BTL1 certifications, following the TryHackMe SOC Level 1 learning path.
 
-Tools & Technologies: Splunk • Sysmon • MITRE ATT&CK • Sigma • CyberChef • VirusTotal • DNS • Windows Event Logs • Wireshark • NetworkMiner.
+Tools & Technologies: Splunk • Sysmon • MITRE ATT&CK • Sigma • CyberChef • VirusTotal • DNS • Windows Event Logs • Wireshark • NetworkMiner
 
 ## 🚨 Featured SOC Investigations
 
