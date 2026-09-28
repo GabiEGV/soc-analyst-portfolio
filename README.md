@@ -36,7 +36,7 @@ Full header analysis of a spoofed phishing email: SPF/DMARC verification, sendin
 
 - TryHackMe SOC Level 1 Path (ongoing)
 - CompTIA Security+
-- BTL1 (BlackPerl Threat Level 1)
+- BTL1 (Blue Team Level 1)
 
 ## 📫 Contact
 
