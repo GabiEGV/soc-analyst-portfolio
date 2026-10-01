@@ -6,7 +6,7 @@
 
 ## Scenario
 
-The room provides a packet capture from a small network with one gateway and a few hosts. The task was to find out whether the ARP traffic in the capture is normal, and if not, identify who is behind it and what they achieved. This writeup covers that investigation. The same room also includes Nmap scan detection, DNS/ICMP tunneling and cleartext credential hunting; those are summarized in my [study notes](../notes/network-traffic-analysis.md).
+The room provides a set of small packet captures, one per stage of the attack, from a network with one gateway and a few hosts. The task was to find out whether the ARP traffic in the capture is normal, and if not, identify who is behind it and what they achieved. This writeup covers that investigation. The same room also includes Nmap scan detection, DNS/ICMP tunneling and cleartext credential hunting; those are summarized in my [study notes](../notes/network-traffic-analysis.md).
 
 ## Why ARP is a good target
 
@@ -24,14 +24,14 @@ Wireshark flags IP-to-MAC conflicts in Expert Info. Filtering for them:
 arp.duplicate-address-detected or arp.duplicate-address-frame
 ```
 
-Two different MACs were answering for the same IP, `192.168.1.1`, which by its number looked like the gateway:
+Two different MACs were answering for the same IP, `192.168.1.1`, which by its number looked like the gateway (Wireshark resolves the first MAC's vendor prefix as ZTE, a router manufacturer, which supports that):
 
 | MAC | Claimed IP |
 |---|---|
 | `50:78:b3:f3:cd:f4` | 192.168.1.1 |
 | `00:0c:29:e2:18:b4` | 192.168.1.1 |
 
-Wireshark only marks the second occurrence of the duplicate, so it does not say which one is legitimate. That part is on the analyst. One more detail from the same filter: the MAC ending in `b4` had earlier announced itself as `192.168.1.25`, and was now claiming a different IP than the one it already had. The fake reply was not a broadcast either: it went straight to the victim's MAC (`00:0c:29:98:c7:a8`), so the attacker only lied to the host it wanted to intercept.
+Wireshark only marks the second occurrence of the duplicate, so it does not say which one is legitimate. That part is on the analyst. Two more details from the same capture, before applying the filter: the MAC ending in `b4` had asked for the gateway's address as `192.168.1.25` moments earlier, and its fake reply came exactly one second after the real reply from the gateway (Expert Info shows the earlier frame and the gap). The fake reply was not a broadcast either: it went straight to the victim's MAC (`00:0c:29:98:c7:a8`), so the attacker only lied to the host it wanted to intercept.
 
 ![Duplicate address detected in Expert Info](assets/wireshark-traffic-analysis/02-arp-duplicate.png)
 
@@ -49,11 +49,11 @@ A flood like this can be malicious activity, a scan, or a network problem, so on
 
 ## Step 3: Confirming the MITM in HTTP traffic
 
-The next step was to look for the effect of the poisoning in other protocols in the same time window. At the IP level the HTTP traffic looked normal: nothing connected it to the ARP findings. The key was adding the source and destination MAC addresses as columns in the packet list (`eth.src`, `eth.dst`), to see who was really behind each IP.
+The next step was to look for the effect of the poisoning in other protocols in the same time window. At the IP level the HTTP traffic looked normal: nothing connected it to the ARP findings. The key was adding the source and destination MAC addresses as columns in the packet list (`eth.src`, `eth.dst`), to see who was really sending and receiving each packet.
 
-Every HTTP packet had the `b4` MAC as its destination, in both directions: the victim's requests to 44.228.249.3 and the server's responses back to 192.168.1.12. That means both the victim and the gateway had been poisoned, and the attacker was seeing the whole conversation. The first request was a `GET /login.php`, so whatever the victim typed on that page went through the attacker in cleartext.
+Every HTTP packet had the `b4` MAC as its destination, in both directions. The victim's requests to 44.228.249.3 left its own MAC (`...98:c7:a8`) addressed to `b4`, and the server's responses back to 192.168.1.12 left the gateway's MAC (`...cd:f4`), also addressed to `b4`. The gateway itself was handing the victim's traffic to the attacker, which means both the victim and the gateway had been poisoned and the attacker was seeing the whole conversation. The first request was a `GET /login.php` on testphp.vulnweb.com, so whatever the victim typed on that page went through the attacker in cleartext.
 
-![HTTP traffic with MAC columns showing the attacker as destination](assets/wireshark-traffic-analysis/04-http-mac-columns.png)
+![HTTP traffic with MAC columns showing the attacker as destination in both directions](assets/wireshark-traffic-analysis/04-http-mac-columns.png)
 
 ## Findings
 
