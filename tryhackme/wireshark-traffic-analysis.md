@@ -107,4 +107,4 @@ Lab environment with private addresses, so there is nothing to defang here. In a
 
 ## Conclusion
 
-None of the three findings proved the attack alone. The duplicate address was a conflict, the flood could have been a scan, and the HTTP traffic looked normal at the IP level. The case came together by correlating them and by adding MAC columns to see the layer where the attack actually happens. In a real capture the data is not prepared for the investigation like in the exercise, so knowing the normal ARP flow and keeping a list of findings as I go is what makes this repeatable.
+None of the three findings proved the attack alone. The duplicate address could have been a misconfiguration, the ARP sweep could have been a legitimate inventory scan, and the HTTP traffic looked normal at the IP level. Only together, and with the MAC columns showing the layer where the attack happens, did they point to a MITM.
