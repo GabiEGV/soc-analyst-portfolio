@@ -71,11 +71,11 @@ Every HTTP packet had the `b4` MAC as its destination, in both directions. The v
 BEFORE (normal)
   Victim .12  <------------------->  Gateway .1  <---> Internet
 
-AFTER (ARP poisoning)
-  Victim .12  ----> Attacker .25 (MAC ...b4) ----> Gateway .1 ---> Internet
-                         |
-                    reads everything
-                    that passes through
+AFTER (ARP poisoning, both sides)
+  Victim .12  <---->  Attacker .25 (MAC ...b4)  <---->  Gateway .1  <---> Internet
+                               |
+                       reads everything
+                     in both directions
 ```
 
 The attacker generated all the ARP noise in the capture, poisoned both the victim and the gateway, and was receiving the HTTP traffic in both directions. Since HTTP is cleartext and the victim was on a login page, any credentials sent were readable by the attacker.
