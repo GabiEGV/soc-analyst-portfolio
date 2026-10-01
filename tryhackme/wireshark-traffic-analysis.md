@@ -102,8 +102,7 @@ Lab environment with private addresses, so there is nothing to defang here. In a
 ## What I would do next in a real SOC
 
 - Isolate the port or VM behind `00:0c:29:e2:18:b4` (the `00:0c:29` prefix is VMware, which fits a lab, but in production it would be a clue too).
-- Check the victim for credentials sent over HTTP during the window and force a reset.
-- Look for the same MAC in DHCP and switch logs to find when it joined the network.
+- Check the capture for a POST to /login.php during the attack window. If credentials were sent, assume they are compromised: force a password change for that account and end its active sessions.- Look for the same MAC in DHCP and switch logs to find when it joined the network.
 - Ask why HTTP without TLS was in use at all.
 
 ## Conclusion
