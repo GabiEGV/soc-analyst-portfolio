@@ -49,7 +49,11 @@ A flood like this can be malicious activity, a scan, or a network problem, so on
 
 ## Step 3: Confirming the MITM in HTTP traffic
 
-The next step was to look for the effect of the poisoning in other protocols in the same time window. At the IP level the HTTP traffic looked normal: nothing connected it to the ARP findings. The key was adding the source and destination MAC addresses as columns in the packet list (`eth.src`, `eth.dst`), to see who was really sending and receiving each packet.
+The next step was to look for the effect of the poisoning in other protocols in the same time window. At the IP level the HTTP traffic looked normal: the victim (192.168.1.12) was talking to a public web server (44.228.249.3) and the server was answering back. The attacker's IP (192.168.1.25) never appears as a source or destination. That is expected, because ARP poisoning works one layer below IP. The IP header keeps the real endpoints, and only the destination MAC in the Ethernet frame changes, so filtering by IP shows nothing connected to the ARP findings.
+
+![HTTP traffic at the IP level, before adding MAC columns](assets/wireshark-traffic-analysis/04a-http-ip-level.png)
+
+The key was adding the source and destination MAC addresses as columns in the packet list (`eth.src`, `eth.dst`), to see who was really sending and receiving each packet.
 
 Every HTTP packet had the `b4` MAC as its destination, in both directions. The victim's requests to 44.228.249.3 left its own MAC (`...98:c7:a8`) addressed to `b4`, and the server's responses back to 192.168.1.12 left the gateway's MAC (`...cd:f4`), also addressed to `b4`. The gateway itself was handing the victim's traffic to the attacker, which means both the victim and the gateway had been poisoned and the attacker was seeing the whole conversation. The first request was a `GET /login.php` on testphp.vulnweb.com, so whatever the victim typed on that page went through the attacker in cleartext.
 
