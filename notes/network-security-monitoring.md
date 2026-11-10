@@ -39,8 +39,7 @@ perfect, regular intervals              beaconing
 
 **Firewall vs IDS vs VPN log.** Each is written by a different device, records a different thing and answers a different question. The firewall records every connection with ALLOW/BLOCK but doesn't judge it: "who talked to whom, and did it pass". The IDS writes only when a signature matches, so it has fewer lines and each one comes with a diagnosis (ET = Emerging Threats ruleset; TROJAN and EXPLOIT are serious, INFO is informational): "what attack was it". The VPN log records authentications only, with the internal IP assigned on success: "who got in and what seat did they take". An investigation is a chain of pivots between the three.
 
-**Counting frequencies in a raw log**, which is `stats count by` done by hand:
-
+Counting frequencies in a raw log, the same thing stats count by does in Splunk, but by hand:
 ```
 cat firewall.log | grep "BLOCK" | cut -d' ' -f5 | cut -d: -f1 | sort | uniq -c | sort -nr
 ```
