@@ -72,7 +72,7 @@ Two things I had to think through here:
 
 The account did not go quiet after that either. `203.0.113.45` logged in again as `svc_backup` on September 4 and twice on September 13, getting a different internal IP each time (`10.8.0.181`, `10.8.0.88`, `10.8.0.53`). And dropping the source IP from the search showed 17 successful `svc_backup` logins across the month from six different external addresses, `198.51.100.45` among them.
 
-![svc_backup successful logins from several external IPs across the month](assets/network-security-essentials/03-vpn-success-other-sources.png)
+<img src="assets/network-security-essentials/03-vpn-success-other-sources.png" alt="svc_backup successful logins from several external IPs across the month" width="700">
 
 A backup service account authenticating to the VPN from half a dozen public IPs is wrong on its own, with or without the brute force. Either the credential was already circulating, or the account is used in a way nobody should have accepted. Either way, resetting it is the first containment action, not the last.
 
