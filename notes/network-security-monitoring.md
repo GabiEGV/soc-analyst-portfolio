@@ -44,7 +44,7 @@ Counting frequencies in a raw log, the same thing stats count by does in Splunk,
 cat firewall.log | grep "BLOCK" | cut -d' ' -f5 | cut -d: -f1 | sort | uniq -c | sort -nr
 ```
 
-Fields in `cut` count from 1, not 0. `sort` before `uniq -c` is mandatory, because `uniq` only collapses adjacent duplicates.
+Fields in cut count from 1, not 0. sort before uniq -c is mandatory, because uniq only collapses adjacent duplicates: without it, an IP that shows up on lines 1, 50 and 200 gets counted as three separate 1s instead of one 3. The output looks fine, the numbers are just wrong.
 
 ## 2. Network discovery detection
 
