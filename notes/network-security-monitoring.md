@@ -89,19 +89,6 @@ OTH     Zeek never saw the SYN           capture started mid-connection
 | FTP | USER / PASS / STOR commands | Generic accounts (admin, backup, root, guest) uploading to an external IP, everything cleartext |
 | ICMP | frame length, type | Echo requests well above the ~74 bytes of a normal ping, with no reply, from several hosts |
 
-```
-CHANNEL   WHERE IT SHOWS IN A LOG                        WHAT GIVES IT AWAY
-DNS       query name, response code                      very long or random-looking names, hundreds of
-                                                         unique subdomains under one parent domain,
-                                                         many NXDOMAIN, TXT or NULL record types,
-                                                         regular intervals, several hosts doing the same
-HTTP      method, bytes_sent, host                       large POSTs to an unknown or new domain;
-                                                         a host that sends far more than it receives
-FTP       USER / PASS / STOR commands                    generic accounts (admin, backup, root, guest)
-                                                         uploading to an external IP, everything cleartext
-ICMP      frame length, type                             echo requests well above the ~74 bytes of a
-                                                         normal ping, with no reply, from several hosts
-```
 
 **DNS, the question I had.** Why is it exfiltration if the queries go to 8.8.8.8? Because the resolver is only the intermediary. It doesn't have the attacker's subdomain cached, so it resolves it recursively and the query ends up at the authoritative server for that domain, which the attacker controls. In the logs it looks like ordinary traffic to Google, and that is the point. The response barely matters: the data already travelled in the question. A high NXDOMAIN count is itself an indicator, because a normal host asks for names that exist.
 
