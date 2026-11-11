@@ -82,6 +82,12 @@ OTH     Zeek never saw the SYN           capture started mid-connection
 **Exfiltration is the end of the chain, never the beginning**. So an exfil alert is never a single finding: by the time data leaves, the attacker is in, has moved and has collected, and all of that is sitting in the logs waiting to be found. What the channels in this room have in common is that they ride a protocol the firewall already allows, so detection is by behaviour (volume, length, destination, regularity), not by protocol.
 
 **What to look for, per channel:**
+| Channel | Where it shows in a log | What gives it away |
+|---|---|---|
+| DNS | query name, response code | Very long or random-looking names, hundreds of unique subdomains under one parent domain, many NXDOMAIN, TXT or NULL record types, regular intervals, several hosts doing the same |
+| HTTP | method, bytes_sent, host | Large POSTs to an unknown or new domain; a host that sends far more than it receives |
+| FTP | USER / PASS / STOR commands | Generic accounts (admin, backup, root, guest) uploading to an external IP, everything cleartext |
+| ICMP | frame length, type | Echo requests well above the ~74 bytes of a normal ping, with no reply, from several hosts |
 
 ```
 CHANNEL   WHERE IT SHOWS IN A LOG                        WHAT GIVES IT AWAY
