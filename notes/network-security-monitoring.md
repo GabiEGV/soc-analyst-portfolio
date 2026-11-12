@@ -183,7 +183,7 @@ Rules I wrote down to stop mixing them: IDS and IPS with no letter in front alwa
 
 ## 6. Snort
 
-**Three modes, one tool.** Sniffer shows packets on the terminal (Wireshark without the GUI), logger saves them to a pcap, IDS/IPS compares them to rules. The modes are not rigid; they are names for combinations of flags, and I found it easier to read any Snort command by asking four questions:
+**Three modes, one tool.** Sniffer shows packets on the terminal (like tcpdump, or Wireshark without the GUI), logger saves them to a pcap, IDS/IPS compares them to rules. The modes are not rigid; they are names for combinations of flags, and I found it easier to read any Snort command by asking four questions:
 
 ```
 where do packets come from?    -i <interface> live        -r <file> from a pcap
